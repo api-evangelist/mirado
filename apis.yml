@@ -1,8 +1,29 @@
 aid: mirado
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mirado.png
 name: Mirado
-description: Mirado is a company surfaced as a portfolio company of version-one-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Mirado is a modern rewards platform that connects marketers and publishers
+  with consumers through a network of more than 100 million cardholders. It
+  delivers targeted, card-linked offers through publisher audiences and gives
+  marketers full transparency into attributed, incremental sales using
+  first-party card and bank data. Marketers reach new audiences and drive
+  revenue at lower advertising cost, while publishers monetize their audiences
+  through rewarding customer experiences. Mirado is an early-stage company
+  backed by Version One Ventures. As of this enrichment pass it publishes a
+  marketing and onboarding presence at mirado.ai (marketers, publishers, about,
+  blog, get-started) but no public developer portal, API documentation, or
+  machine-readable API surface.
 url: https://raw.githubusercontent.com/api-evangelist/mirado/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,12 +33,35 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Rewards
+- Loyalty
+- Card-Linked Offers
+- Advertising
+- MarTech
+- Publishers
+- Fintech
 apis: []
+common:
+- type: DomainSecurity
+  url: security/mirado-domain-security.yml
+- type: Website
+  url: https://mirado.ai
+- type: Blog
+  url: https://mirado.ai/blog
+- type: SignUp
+  url: https://mirado.ai/get-started
+- type: PrivacyPolicy
+  url: https://mirado.ai/privacy
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: nochange
+  artifacts_added: 0
+  pass: local-v1
