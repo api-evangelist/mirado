@@ -1,0 +1,31 @@
+generated: '2026-08-12'
+method: searched
+source: https://www.mirado.ai/get-started
+plan_count: 0
+note: >-
+  Mirado publishes no plans, tiers, rate card or price of any kind — not for the
+  advertising platform and not for any developer surface. There is no /pricing page
+  (https://www.mirado.ai/pricing returns 404) and pricing appears nowhere in the
+  sitemap, which lists only /, /get-started, /marketers, /publishers, /about, /blog,
+  /privacy and the blog category pages. Onboarding for both sides of the marketplace
+  is a single lead-capture form: "Please submit your information and our team will get
+  back to you soon!", with partnerships@mirado.ai as the named contact. The commercial
+  model is stated in prose on the marketing pages — merchant-funded rewards, where the
+  marketer pays only on attributed, incremental sale — but no rate, take rate, CPA or
+  minimum is published. NO Plans or Pricing pointer is emitted in apis.yml; this file
+  records a measured absence.
+plans: []
+commercial_model:
+  model: merchant-funded card-linked offers
+  marketer_side: pays on attributed / incremental sale (rate not published)
+  publisher_side: revenue share on rewards delivered to their audience (rate not published)
+  self_serve_signup: false
+  onboarding: contact form + partnerships@mirado.ai
+x-evidence:
+  fetched: '2026-08-12'
+  probes:
+    - {url: 'https://www.mirado.ai/pricing', http_status: 404}
+    - {url: 'https://www.mirado.ai/get-started', http_status: 200, note: 'lead-capture form stands in for pricing'}
+    - {url: 'https://www.mirado.ai/marketers', http_status: 200, note: 'value prop only, no rate card'}
+    - {url: 'https://www.mirado.ai/publishers', http_status: 200, note: 'value prop only, no rate card'}
+    - {url: 'https://www.mirado.ai/sitemap.xml', http_status: 200, note: 'no pricing URL in sitemap'}

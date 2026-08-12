@@ -1,0 +1,70 @@
+generated: '2026-08-12'
+method: probed
+source: live probes of /.well-known/ on every Mirado host reachable from apis.yml
+description: >-
+  Results of probing the /.well-known/ discovery surface for every Mirado host.
+  apis.yml carries no apis[] entries and there is no OpenAPI in this repo, so the
+  host list was built from the website root (mirado.ai / www.mirado.ai) and the one
+  additional first-party host that resolves in DNS: app.mirado.ai, the login-gated
+  customer console (Next.js, serves the /login route to anonymous callers).
+  EVERY probed path returned 404. Nothing was saved, and NO WellKnown or SecurityTxt
+  pointer is emitted in apis.yml — this file records a measured absence, not a surface.
+  Note that mirado.ai answers 404 with a short "Not found" body on some paths and with
+  the Framer 404 HTML page on others; neither is a document.
+hosts:
+  - host: https://mirado.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://www.mirado.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://app.mirado.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+summary:
+  hosts_probed: 3
+  paths_probed: 19
+  documents_found: 0
+  pointer_emitted: false
+x-evidence:
+  fetched: '2026-08-12'
+  user_agent: 'Mozilla/5.0 (compatible; APIEvangelist/1.0)'
+  note: >-
+    app.mirado.ai answers 404 for every unknown path with the Next.js HTML 404 shell;
+    it was checked for an HTML-shell false positive and none of the probed paths
+    returned 200.

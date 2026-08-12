@@ -13,17 +13,22 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mirado.png
 name: Mirado
 description: >-
-  Mirado is a modern rewards platform that connects marketers and publishers
-  with consumers through a network of more than 100 million cardholders. It
-  delivers targeted, card-linked offers through publisher audiences and gives
-  marketers full transparency into attributed, incremental sales using
-  first-party card and bank data. Marketers reach new audiences and drive
-  revenue at lower advertising cost, while publishers monetize their audiences
-  through rewarding customer experiences. Mirado is an early-stage company
-  backed by Version One Ventures. As of this enrichment pass it publishes a
-  marketing and onboarding presence at mirado.ai (marketers, publishers, about,
-  blog, get-started) but no public developer portal, API documentation, or
-  machine-readable API surface.
+  Mirado is a B2B card-linked-offer and rewards infrastructure company that sits
+  between marketers and publishers. Marketers — from Fortune 500 retailers to
+  local businesses — fund cash-back offers that Mirado delivers into the apps of
+  publishers such as banks and fintech apps, and Mirado attributes the resulting
+  sales with first-party card and bank transaction data so marketers can measure
+  incremental lift rather than impressions. The company states a reach of more
+  than 100 million cardholders across 15+ financial partners, and describes
+  itself as having evolved from its origins in consumer rewards into B2B
+  advertising infrastructure. Mirado is an early-stage company backed by Version
+  One Ventures. As of this enrichment pass (2026-08-12) it publishes a marketing
+  site at mirado.ai (marketers, publishers, about, blog, get-started, privacy)
+  and a login-gated customer console at app.mirado.ai, but no developer portal,
+  no API documentation, and no machine-readable API surface of any kind. Full
+  contract discovery across all three hosts returned 404 on every OpenAPI,
+  GraphQL, MCP, llms.txt and /.well-known/ path. Onboarding for both sides of the
+  marketplace is a lead-capture form handled by partnerships@mirado.ai.
 url: https://raw.githubusercontent.com/api-evangelist/mirado/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -33,7 +38,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-12'
 tags:
 - Company
 - Rewards
@@ -55,13 +60,43 @@ common:
   url: https://mirado.ai/get-started
 - type: PrivacyPolicy
   url: https://mirado.ai/privacy
+- type: About
+  url: https://www.mirado.ai/about
+- type: LinkedIn
+  url: https://www.linkedin.com/company/miradoai
+- type: Twitter
+  url: https://x.com/MiradoAI
+- type: LLMsTxt
+  url: llms/mirado-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-20'
-  status: nochange
-  artifacts_added: 0
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 3
   pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Mirado sells an integration — publishers embed its card-linked offers in their own
+    banking apps — but publishes nothing about it: there is no developer subdomain in
+    DNS, the only non-marketing host is app.mirado.ai which serves a /login route to
+    anonymous callers, and the sole onboarding path is the /get-started lead form
+    ("submit your information and our team will get back to you") routed to
+    partnerships@mirado.ai.
+  evidence:
+    - url: https://www.mirado.ai/get-started
+      status: 200
+    - url: https://app.mirado.ai/
+      status: 200
+    - url: https://mirado.ai/openapi.json
+      status: 404
+    - url: https://mirado.ai/llms.txt
+      status: 404
+    - url: https://mirado.ai/.well-known/agent-card.json
+      status: 404
+  checked: '2026-08-12'
