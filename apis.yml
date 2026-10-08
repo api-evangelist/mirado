@@ -62,6 +62,8 @@ tags:
 - Loyalty & Incentives
 apis: []
 common:
+- type: Plans
+  url: plans/mirado-plans-pricing.yml
 - type: DomainSecurity
   url: security/mirado-domain-security.yml
 - type: Website
